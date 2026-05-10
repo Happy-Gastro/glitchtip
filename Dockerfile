@@ -42,6 +42,10 @@ RUN cat patches/00-skip-user-invitation-process.patch | patch -p1 && \
 # --- FINAL PROD IMAGE ---
 FROM base AS prod
 ENV PORT=8000
+# Disable psycopg connection pooling by default for compatibility with small
+# database connection limits (e.g. Coolify-managed Postgres). Users can opt
+# back in by setting DATABASE_POOL=true at runtime.
+ENV DATABASE_POOL=false
 EXPOSE ${PORT}
 
 RUN if [ -z "${GLITCHTIP_VERSION}" ]; then echo "Error: GLITCHTIP_VERSION is not set." >&2; false; fi
