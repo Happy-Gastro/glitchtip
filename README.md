@@ -172,7 +172,7 @@ The `docker-compose.yml` starts postgres, redis, web, worker, and init-api-users
 
 ## Coolify Deployment Notes
 
-- Set `DATABASE_POOL=false` (default in this repository patch) to avoid psycopg pool timeouts on small database connection limits.
+- `DATABASE_POOL` now defaults to `false` in this repository patch to avoid psycopg pool timeouts on small database connection limits.
 - If you want pooling enabled, set `DATABASE_POOL=true` and tune `DATABASE_POOL_MIN_SIZE` / `DATABASE_POOL_MAX_SIZE` for your database limits.
 - Set `ENABLE_USER_REGISTRATION=true` and `ENABLE_ORGANIZATION_CREATION=true` for automatic user onboarding and organization creation.
 
