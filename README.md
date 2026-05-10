@@ -170,6 +170,11 @@ make test
 
 The `docker-compose.yml` starts postgres, redis, web, worker, and init-api-users. Web is available at `http://localhost:8000`.
 
+## Coolify Deployment Notes
+
+- Set `DATABASE_POOL=false` (default in this repository patch) to avoid psycopg pool timeouts on small database connection limits.
+- If you want pooling enabled, set `DATABASE_POOL=true` and tune `DATABASE_POOL_MIN_SIZE` / `DATABASE_POOL_MAX_SIZE` for your database limits.
+
 Default local users:
 
 | Email                              | Password              | Token   |
