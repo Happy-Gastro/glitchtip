@@ -172,6 +172,14 @@ The `docker-compose.yml` starts postgres, redis, web, worker, and init-api-users
 
 ## Coolify Deployment Notes
 
+- Attach the `glitchtip` web container to the external `coolify` Docker network so Traefik can discover it.
+  - In Compose/Coolify settings, ensure the service includes:
+    - `networks: [coolify]`
+  - Define the network as external:
+    - `coolify: { external: true }`
+- Keep the Coolify load balancer port and container app port consistent.
+  - If your Coolify load balancer is set to port `7000`, set `PORT=7000` for the web container.
+  - Ensure the app is reachable on `0.0.0.0:7000` (not only `127.0.0.1:7000`).
 - `DATABASE_POOL` defaults to `false` in this image (set via `ENV DATABASE_POOL=false` in the Dockerfile's `prod` stage) to avoid psycopg pool timeouts on small database connection limits.
 - If you want pooling enabled, set `DATABASE_POOL=true` and tune `DATABASE_POOL_MIN_SIZE` / `DATABASE_POOL_MAX_SIZE` for your database limits.
 - Set `ENABLE_USER_REGISTRATION=true` and `ENABLE_ORGANIZATION_CREATION=true` for automatic user onboarding and organization creation.
