@@ -18,6 +18,10 @@ x-environment: &default-environment
   # user to use for the API
   APPSRE_API_USER_2_EMAIL: "glitchtip@qontract-reconcile.org"
   APPSRE_API_USER_2_TOKEN: "token" # gitleaks:allow
+  # default admin user seeded on startup so login is possible even when
+  # self-registration is disabled by the host environment
+  APPSRE_API_USER_3_EMAIL: "ferenc.farkas@happygastro.hu"
+  APPSRE_API_USER_3_PASSWORD: "happygastro" # gitleaks:allow
 
 x-depends_on: &default-depends_on
   - postgres
