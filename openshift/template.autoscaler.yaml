@@ -642,7 +642,7 @@ parameters:
 - name: ENABLE_ORGANIZATION_CREATION
   description: Enable or disable the manual creation of the organization by users
   required: true
-  value: "False"
+  value: "True"
 
 - name: ENABLE_USER_REGISTRATION
   description: Enable or disable the manual user registration
@@ -832,4 +832,3 @@ parameters:
   description: Notification Cleaner cpu requests
   value: "100m"
   required: true
-
