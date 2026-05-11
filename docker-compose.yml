@@ -4,6 +4,10 @@ x-environment: &default-environment
   ENABLE_ORGANIZATION_CREATION: "true"
 
   ENABLE_USER_REGISTRATION: "true"
+  # Controls whether the registration form is shown in the UI. Without this,
+  # the frontend displays "Registration is currently unavailable. Contact your
+  # server administrator." even when ENABLE_USER_REGISTRATION is true.
+  ENABLE_OPEN_USER_REGISTRATION: "true"
   ENABLE_SOCIAL_APPS_USER_REGISTRATION: "true"
   GLITCHTIP_DOMAIN: "http://217.16.177.156:7000"
   I_PAID_FOR_GLITCHTIP: "true"

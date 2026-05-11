@@ -14,7 +14,7 @@ objects:
     GLITCHTIP_DOMAIN: ${GLITCHTIP_DOMAIN}
     PORT: "${GT_APP_PORT}"
     ENABLE_OBSERVABILITY_API: "${ENABLE_OBSERVABILITY_API}"
-    ENABLE_OPEN_USER_REGISTRATION: "${ENABLE_ORGANIZATION_CREATION}"
+    ENABLE_OPEN_USER_REGISTRATION: "${ENABLE_OPEN_USER_REGISTRATION}"
     ENABLE_USER_REGISTRATION: "${ENABLE_USER_REGISTRATION}"
     DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
     I_PAID_FOR_GLITCHTIP: "True"
@@ -646,6 +646,14 @@ parameters:
 
 - name: ENABLE_USER_REGISTRATION
   description: Enable or disable the manual user registration
+  required: true
+  value: "True"
+
+- name: ENABLE_OPEN_USER_REGISTRATION
+  description: |
+    Enable or disable open (self-service) user registration in the UI.
+    When False, the frontend shows "Registration is currently unavailable.
+    Contact your server administrator." Independent of ENABLE_USER_REGISTRATION.
   required: true
   value: "True"
 

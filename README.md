@@ -182,7 +182,7 @@ The `docker-compose.yml` starts postgres, redis, web, worker, and init-api-users
   - Ensure the app is reachable on `0.0.0.0:7000` (not only `127.0.0.1:7000`).
 - `DATABASE_POOL` defaults to `false` in this image (set via `ENV DATABASE_POOL=false` in the Dockerfile's `prod` stage) to avoid psycopg pool timeouts on small database connection limits.
 - If you want pooling enabled, set `DATABASE_POOL=true` and tune `DATABASE_POOL_MIN_SIZE` / `DATABASE_POOL_MAX_SIZE` for your database limits.
-- Set `ENABLE_USER_REGISTRATION=true` and `ENABLE_ORGANIZATION_CREATION=true` for automatic user onboarding and organization creation.
+- Set `ENABLE_USER_REGISTRATION=true`, `ENABLE_OPEN_USER_REGISTRATION=true`, and `ENABLE_ORGANIZATION_CREATION=true` for automatic user onboarding and organization creation. Note that `ENABLE_OPEN_USER_REGISTRATION` is what controls whether the registration form is shown in the UI; without it the frontend displays "Registration is currently unavailable. Contact your server administrator." even if `ENABLE_USER_REGISTRATION=true`.
 
 Default local users:
 
